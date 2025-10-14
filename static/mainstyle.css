@@ -1,0 +1,121 @@
+:root{
+--primary: #2A9DF4;
+--deep: #1B4965;
+--accent: #06D6A0;
+--bg: #ffffff;
+--muted: #6b7280;
+--soft: #EAF6FA;
+--radius: 14px;
+--container: 1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+font-family: 'Noto Sans KR', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+margin:0; background:var(--bg); color:#0f172a; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--container); margin:0 auto; padding:32px}
+
+
+/* Header */
+header{height:72px; display:flex; align-items:center; justify-content:space-between}
+.logo{display:flex; align-items:center; gap:12px}
+.logo .mark{width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--primary),#6fc3ff); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700}
+/* nav 링크 기본 스타일 */
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  margin: 0 15px;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+/* 마우스를 올렸을 때 색상 변경 */
+nav a:hover {
+  color: #2A9DF4; /* 파란색 강조 */
+}
+
+/* 밑줄 애니메이션 효과 추가 */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #2A9DF4;
+  transition: width 0.3s ease;
+}
+
+/* hover 시 밑줄이 부드럽게 나타남 */
+nav a:hover::after {
+  width: 100%;
+}
+.auth{display:flex; gap:10px; align-items:center}
+
+/* 버튼 공통 */
+.btn {
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+/* primary 버튼 (HTML: class="btn primary") */
+.btn.primary {
+  background-color: #2A9DF4; /* 기본 파랑 */
+  color: #ffffff;
+  border-color: rgba(42,157,244,0.18);
+}
+/* primary hover */
+.btn.primary:hover {
+  background-color: #1673c9; /* 더 진한 파랑 */
+  transform: scale(1.04);
+  box-shadow: 0 8px 20px rgba(23,85,150,0.12);
+}
+/* outline 버튼 (HTML: class="btn outline") */
+.btn.outline {
+  background-color: #ffffff;
+  color: #2A9DF4;
+  border-color: rgba(42,157,244,0.18);
+}
+/* outline hover */
+.btn.outline:hover {
+  background-color: #EAF6FF; /* 연한 하늘색 */
+  transform: scale(1.04);
+  box-shadow: 0 6px 18px rgba(42,157,244,0.08);
+}
+
+
+
+/* Hero */
+.hero{display:flex; gap:40px; align-items:center; padding:60px 0}
+.hero-left{flex:1}
+.hero-right{flex:1; display:flex; justify-content:center}
+h1{font-size:48px; line-height:1.02; margin:0 0 18px 0}
+h1 .accent{color:var(--primary)}
+p.lead{margin:0 0 28px 0; color:var(--muted); font-size:16px}
+.cta-row{display:flex; gap:12px}
+
+
+/* image card */
+.img-card{width:100%; max-width:460px; border-radius:22px; overflow:hidden; box-shadow:0 12px 30px rgba(14,42,70,0.08); background:linear-gradient(180deg,rgba(234,246,250,0.6), rgba(255,255,255,0.6)); display:flex; align-items:center; justify-content:center; padding:8px}
+.img-card img{width:100%; height:auto; display:block}
+
+
+/* Subsection */
+.sub{margin-top:48px; padding:48px 26px; text-align:center; border-radius:12px}
+.sub h2{font-size:28px; margin:0 0 8px 0}
+.sub p{margin:0; color:var(--muted)}
+
+
+/* Responsive */
+@media (max-width:900px){
+.wrap{padding:20px}
+.hero{flex-direction:column-reverse; gap:28px; padding:36px 0}
+h1{font-size:36px}
+.img-card{max-width:360px}
+nav{display:none}
+}
