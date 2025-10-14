@@ -31,7 +31,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     # 'templates/index.html'을 렌더링합니다.
-    return render_template('index.html')
+    return render_template('main.html')
 
 @app.route('/login')
 def login_page():
