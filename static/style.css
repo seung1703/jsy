@@ -1,9 +1,187 @@
-/* style.css */
-body {
-    font-family: Arial, sans-serif;
-    padding: 50px;
+/* 기본 스타일 초기화 및 폰트 설정 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-.main-title {
-    color: red; /* <-- 연결 확인을 위해 빨간색으로 설정 */
-    font-size: 2.5em;
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+/* 로고 스타일 */
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 28px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo-icon {
+    font-weight: bold;
+    color: #3498db;
+    margin-right: 8px;
+    font-size: 32px;
+    transform: scale(1.5, 0.8);
+}
+
+/* 폼 컨테이너 스타일 */
+.form-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* 입력 필드 그룹 */
+.input-group {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* 버튼 스타일 */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+}
+
+/* 하단 링크 스타일 */
+.switch-form {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #555;
+}
+
+.switch-form a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+
+
+/* style.css 파일 하단의 날짜 관련 코드 전체를 이걸로 교체하세요 */
+
+/* 날짜 입력 필드 컨테이너 */
+.date-input-container {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.date-input-container:focus-within {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* 디자인을 위한 가짜 placeholder */
+.date-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 15px;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+/* 실제 기능을 하는 투명한 날짜 입력창 */
+.date-input-container input[type="date"] {
+    width: 100%;
+    height: 48px;
+    padding: 14px 16px;
+    border: none;
+    background-color: transparent;
+    color: transparent; /* ★★★ 핵심: 기본 상태에서 글자색을 투명하게 만듭니다 ★★★ */
+    font-size: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+/* 날짜가 유효하게 선택되면, 그때 글자색을 다시 보여줍니다 */
+.date-input-container input[type="date"]:valid {
+    color: #333;
+}
+
+/* 날짜가 유효하게 선택되면, 가짜 placeholder 숨기기 */
+.date-input-container input[type="date"]:valid + .date-placeholder {
+    opacity: 0;
+}
+
+/* 브라우저 기본 화살표/달력 아이콘 */
+.date-input-container input[type="date"]::-webkit-inner-spin-button,
+.date-input-container input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0.5;
+    cursor: pointer;
+    z-index: 2;
 }
